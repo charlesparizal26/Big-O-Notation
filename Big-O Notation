@@ -1,0 +1,311 @@
+namespace Data_Structure
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Sample 1: Fixed Deposit Addition");
+            comboBox1.Items.Add("Sample 2: Retrieve Array Element by Index");
+            comboBox1.Items.Add("Sample 3: Get the first item");
+            comboBox1.SelectedIndex = 0;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Loaded O(1) Constant Time samples.");
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Sample 1: Binary Search for Target 46");
+            comboBox1.Items.Add("Sample 2: Binary Search in Inventory Code");
+            comboBox1.Items.Add("Sample 3: Halving Numbers Step Count");
+            comboBox1.SelectedIndex = 0;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Loaded O(Log n) Logarithmic Time samples.");
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Sample 1: Find the Maximum Value in an Unsorted List");
+            comboBox1.Items.Add("Sample 2: Linear Search for a Target in Unsorted Data");
+            comboBox1.Items.Add("Sample 3: Reverse the Order of an Array");
+            comboBox1.SelectedIndex = 0;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Loaded O(n) Linear Time samples.");
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Sample 1: Student Pair Listing");
+            comboBox1.Items.Add("Sample 2: Multiplication Table Grid (3x3)");
+            comboBox1.Items.Add("Sample 3: Duplicate Elements Checker");
+            comboBox1.SelectedIndex = 0;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Loaded O(n²) Quadratic Time samples.");
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Sample 1: Combination Generator (3 Items)");
+            comboBox1.Items.Add("Sample 2: Binary Tree Path Explorer (3 Levels)");
+            comboBox1.Items.Add("Sample 3: Power Set Generation");
+            comboBox1.SelectedIndex = 0;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Loaded O(2ⁿ) Exponential Time samples.");
+        }
+
+
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+
+            string selectedSample = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : "";
+
+            if (selectedSample == "")
+            {
+                listBox1.Items.Add("Please click a Big-O button on the left and select a sample first!");
+                return;
+            }
+
+            if (selectedSample.Contains("Fixed Deposit Addition"))
+            {
+                decimal balance = 1000.00m;
+                decimal deposit = 250.50m;
+                decimal total = balance + deposit;
+
+                listBox1.Items.Add("O(1) Constant Time [Sample 1]");
+                listBox1.Items.Add("Initial Balance: $" + balance);
+                listBox1.Items.Add("Deposit Added: $" + deposit);
+                listBox1.Items.Add("Final Savings: $" + total);
+            }
+            else if (selectedSample.Contains("Retrieve Array Element"))
+            {
+                int[] numbers = { 10, 20, 30, 40, 50 };
+                int index = 2;
+                int value = numbers[index];
+
+                listBox1.Items.Add("O(1) Constant Time [Sample 2]");
+                listBox1.Items.Add("Array: [10, 20, 30, 40, 50]");
+                listBox1.Items.Add("Accessing Index: " + index);
+                listBox1.Items.Add("Retrieved Value: " + value);
+            }
+            else if (selectedSample.Contains("Get the first item"))
+            {
+                string[] fruits = { "Apple", "Banana", "Mango" };
+                string fruit = fruits[0];
+
+                listBox1.Items.Add("O(1) Constant Time [Sample 3]");
+                listBox1.Items.Add("Array: { \"Apple\", \"Banana\", \"Mango\" }");
+                listBox1.Items.Add("Retrieved Item (fruits[0]): " + fruit);
+            }
+
+            else if (selectedSample.Contains("Binary Search for Target 46"))
+            {
+                int[] arr = { 12, 25, 36, 44, 46, 50, 74 };
+                int target = 46;
+
+                listBox1.Items.Add("O(Log n) Logarithmic Time [Sample 1]");
+                listBox1.Items.Add("Sorted Array: " + string.Join(", ", arr));
+                listBox1.Items.Add("Target Code: " + target);
+                listBox1.Items.Add("Result: Found at Index 4");
+            }
+            else if (selectedSample.Contains("Binary Search in Inventory"))
+            {
+                string[] inventory = { "A101", "B205", "C303", "D410", "E500" };
+                string target = "C303";
+
+                listBox1.Items.Add("O(Log n) Logarithmic Time [Sample 2]");
+                listBox1.Items.Add("Inventory: " + string.Join(", ", inventory));
+                listBox1.Items.Add("Target Code: " + target);
+                listBox1.Items.Add("Result: Found at Index 2");
+            }
+            else if (selectedSample.Contains("Halving Numbers Step Count"))
+            {
+                int n = 32;
+                int steps = 0;
+                int temp = n;
+
+                while (temp > 1)
+                {
+                    temp /= 2;
+                    steps++;
+                }
+
+                listBox1.Items.Add("O(Log n) Logarithmic Time [Sample 3]");
+                listBox1.Items.Add("Starting Value (n): " + n);
+                listBox1.Items.Add("Total Halving Steps to reach 1: " + steps);
+            }
+
+            else if (selectedSample.Contains("Find the Maximum Value"))
+            {
+                int[] numbers = { 23, 89, 12, 45, 67, 9 };
+                int maxVal = numbers[0];
+
+                for (int i = 1; i < numbers.Length; i++)
+                {
+                    if (numbers[i] > maxVal)
+                    {
+                        maxVal = numbers[i];
+                    }
+                }
+
+                listBox1.Items.Add("O(n) Linear Time [Sample 1]");
+                listBox1.Items.Add("Array: [23, 89, 12, 45, 67, 9]");
+                listBox1.Items.Add("Maximum Value Found: " + maxVal);
+                listBox1.Items.Add("Explanation: Scans every element once; scales linearly with n.");
+            }
+            else if (selectedSample.Contains("Linear Search for a Target"))
+            {
+                int[] data = { 10, 42, 5, 19, 73, 28 };
+                int target = 73;
+                int foundIndex = -1;
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    if (data[i] == target)
+                    {
+                        foundIndex = i;
+                        break;
+                    }
+                }
+
+                listBox1.Items.Add("O(n) Linear Time [Sample 2]");
+                listBox1.Items.Add("Data: [10, 42, 5, 19, 73, 28]");
+                listBox1.Items.Add("Target searched: " + target);
+                listBox1.Items.Add("Found at Index: " + foundIndex);
+                listBox1.Items.Add("Explanation: Unsorted search requires checking items one by one.");
+            }
+            else if (selectedSample.Contains("Reverse the Order of an Array"))
+            {
+                int[] original = { 1, 2, 3, 4, 5 };
+                int[] reversed = new int[original.Length];
+
+                for (int i = 0; i < original.Length; i++)
+                {
+                    reversed[i] = original[original.Length - 1 - i];
+                }
+
+                listBox1.Items.Add("O(n) Linear Time [Sample 3]");
+                listBox1.Items.Add("Original Array: [" + string.Join(", ", original) + "]");
+                listBox1.Items.Add("Reversed Array: [" + string.Join(", ", reversed) + "]");
+                listBox1.Items.Add("Explanation: Traverses the entire collection of size n.");
+            }
+
+            else if (selectedSample.Contains("Student Pair Listing"))
+            {
+                string[] students = { "Alice", "Bob", "Charlie", "Diana" };
+
+                listBox1.Items.Add("O(n²) Quadratic Time [Sample 1]");
+                for (int i = 0; i < students.Length; i++)
+                {
+                    for (int j = i + 1; j < students.Length; j++)
+                    {
+                        listBox1.Items.Add("Pair: (" + students[i] + ", " + students[j] + ")");
+                    }
+                }
+            }
+            else if (selectedSample.Contains("Multiplication Table Grid"))
+            {
+                listBox1.Items.Add("O(n²) Quadratic Time [Sample 2]");
+                listBox1.Items.Add("Generating 3x3 Multiplication Matrix:");
+                for (int i = 1; i <= 3; i++)
+                {
+                    string row = "";
+                    for (int j = 1; j <= 3; j++)
+                    {
+                        row += (i * j) + "\t";
+                    }
+                    listBox1.Items.Add("Row " + i + ": " + row);
+                }
+            }
+            else if (selectedSample.Contains("Duplicate Elements Checker"))
+            {
+                int[] data = { 5, 2, 9, 5, 1 };
+                bool hasDuplicate = false;
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    for (int j = i + 1; j < data.Length; j++)
+                    {
+                        if (data[i] == data[j])
+                        {
+                            hasDuplicate = true;
+                            break;
+                        }
+                    }
+                }
+
+                listBox1.Items.Add("O(n²) Quadratic Time [Sample 3]");
+                listBox1.Items.Add("Array: [5, 2, 9, 5, 1]");
+                listBox1.Items.Add("Has Duplicate Value? " + hasDuplicate);
+            }
+
+
+            else if (selectedSample.Contains("Combination Generator"))
+            {
+                listBox1.Items.Add("O(2ⁿ) Exponential Time [Sample 1]");
+                listBox1.Items.Add("Items: [Item1, Item2, Item3]");
+                listBox1.Items.Add("[] (Empty set)");
+                listBox1.Items.Add("[Item1]");
+                listBox1.Items.Add("[Item2]");
+                listBox1.Items.Add("[Item1, Item2]");
+                listBox1.Items.Add("[Item3]");
+                listBox1.Items.Add("[Item1, Item3]");
+                listBox1.Items.Add("[Item2, Item3]");
+                listBox1.Items.Add("[Item1, Item2, Item3]");
+            }
+            else if (selectedSample.Contains("Binary Tree Path Explorer"))
+            {
+                listBox1.Items.Add("O(2ⁿ) Exponential Time [Sample 2]");
+                listBox1.Items.Add("Exploring 3 decision levels (Left/Right branches):");
+                listBox1.Items.Add("Path 1: Left -> Left -> Left");
+                listBox1.Items.Add("Path 2: Left -> Left -> Right");
+                listBox1.Items.Add("Path 3: Left -> Right -> Left");
+                listBox1.Items.Add("Path 4: Left -> Right -> Right");
+                listBox1.Items.Add("Path 5: Right -> Left -> Left");
+                listBox1.Items.Add("Path 6: Right -> Left -> Right");
+                listBox1.Items.Add("Path 7: Right -> Right -> Left");
+                listBox1.Items.Add("Path 8: Right -> Right -> Right");
+            }
+            else if (selectedSample.Contains("Power Set Generation"))
+            {
+                listBox1.Items.Add("O(2ⁿ) Exponential Time [Sample 3]");
+                listBox1.Items.Add("Generating Power Set for set {A, B}:");
+                listBox1.Items.Add("{ }");
+                listBox1.Items.Add("{A}");
+                listBox1.Items.Add("{B}");
+                listBox1.Items.Add("{A, B}");
+            }
+        }
+
+
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+        }
+
+
+
+        private void label2_Click(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void panel2_Paint(object sender, PaintEventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+    }
+}
